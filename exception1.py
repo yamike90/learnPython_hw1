@@ -10,11 +10,26 @@
     
 """
 
-def ask_user():
-    """
-    Замените pass на ваш код
-    """
-    pass
-    
-if __name__ == "__main__":
-    ask_user()
+user_dict = {"Как дела?" : "Хорошо!",
+        "Что делаешь?" : "Программирую",
+        "Чем завтракал?" : "Хлопья и кофе",
+        "Что будешь делать летом?" : "Проект на Python",
+        }
+
+def ask_user_dict(qa):    
+    while True:
+        try:
+            user_question = input("Задай мне вопрос: ")
+            if user_question in qa.keys():
+                print(qa[user_question])
+            elif user_question == "Пока":
+                print("И тебе пока")
+                break
+            else:
+                print('У меня нет ответа на твой вопрос. Попробуй снова')
+        except KeyboardInterrupt:
+            print('''
+Пока''')
+            break
+
+ask_user_dict(user_dict)

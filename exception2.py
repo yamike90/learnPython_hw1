@@ -13,12 +13,12 @@
 """
 
 def get_summ(num_one, num_two):
-    """
-    Замените pass на ваш код
-    """
-    pass
+    try:
+        return int(num_one) + int(num_two)
+    except ValueError:
+        return "На вход поданы нечисловые значения"
     
-if __name__ == "__main__":
+if __name__ == "__main__": # что значит эта конструкция? зачем она?
     print(get_summ(2, 2))
     print(get_summ(3, "3"))
     print(get_summ("4", "4"))

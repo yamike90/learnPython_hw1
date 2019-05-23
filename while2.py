@@ -15,11 +15,40 @@
     
 """
 
-def ask_user():
-    """
-    Замените pass на ваш код
-    """
-    pass
-    
-if __name__ == "__main__":
-    ask_user()
+# просьба посмотреть оба варианта и сказать, какой лучше
+# есть ли способ сравнить производительность той или иной реализации?
+
+user_dict = {"Как дела?" : "Хорошо!",
+        "Что делаешь?" : "Программирую",
+        "Чем завтракал?" : "Хлопья и кофе",
+        "Что будешь делать летом?" : "Проект на Python",
+        }
+
+# вариант 1
+def ask_user_dict(qa):    
+     while True:
+        user_question = input("Задай мне вопрос: ")
+        if user_question in qa.keys():
+            print(qa[user_question])
+        elif user_question == "Пока":
+            print("И тебе пока")
+            break
+        else:
+            print('У меня нет ответа на твой вопрос. Попробуй снова')
+
+#ask_user_dict(user_dict)
+
+# вариант 2
+def ask_user_dict_2(qa):
+    while True:
+        user_input = input("Задай мне вопрос: ")
+        answer = qa.get(user_input)
+        if user_input == "Пока":
+            print("И тебе пока")
+            break
+        elif answer == None:
+            print('У меня нет ответа на твой вопрос. Попробуй снова')
+        else:
+            print(answer)
+
+ask_user_dict_2(user_dict)

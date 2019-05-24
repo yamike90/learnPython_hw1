@@ -17,16 +17,18 @@
 def main():
     
     age = input("Введите ваш возраст: ")
+    age = abs(int(age))
 
-    if abs(int(age)) < 4:
+    if age < 4:
         print("Оставайтесь дома с родителями")
-    elif abs(int(age)) >= 4 and abs(int(age)) < 7:
+    elif age < 7:
         print("Пора в детский сад")
-    elif abs(int(age)) >= 7 and abs(int(age)) < 18:
+    elif age < 18:
         print("Пора в школу")
-    elif abs(int(age)) >= 18 and abs(int(age)) < 24:
+    elif age < 24:
         print("Пора в университет")
-    elif abs(int(age)) >= 24:
+    else:
         print("Пора работать до ваших последних дней")
 
-main()
+if __name__ == "__main__":
+    main()

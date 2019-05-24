@@ -14,32 +14,47 @@
 
 """
 
-def main(str1, str2):
+def compare(str1, str2):
 
-    if type(str1) != str or type(str2) != str:
-        result = 0
+    #if type(str1) != str or type(str2) != str:
+    if isinstance(str1, str) == False or isinstance(str2, str) == False:
+        return 0
     elif str1 == str2:
-        result = 1
-    elif str1 >= str2:        
-        result = 2
-    elif str1 != str2 and str2 == "learn":
-        result = 3
+        return 1
+    elif len(str1) > len(str2):        
+        return 2
+    elif str2 == "learn":
+        return 3
     else:
-        result = "Не предусмотрено заданием"
+        return "Не предусмотрено заданием"
 
-    print(result)
+def main():
+    str_list = [[1, "abc"],
+                ["abc", 1],
+                [1, 1],
+                ["abc", "abc"],
+                ["abcd", "abc"],
+                ["abc", "learn"],
+                ["abc", "learnlearn"]
+                ]
 
-str_list = [[1, "abc"],
-            ["abc", 1],
-            [1, 1],
-            ["abc", "abc"],
-            ["abcd", "abc"],
-            ["abc", "learn"],
-            ["abc", "learnlearn"]
-            ]
+    for i in str_list:
+        print(compare(i[0], i[1]))
 
-for i in str_list:
-    main(i[0], i[1])
+    #for str1, str2 in str_list:
+        #print(compare_strings(str1, str2))
+
+    #for i in str_list:
+        #str1, str2 = i
+        #print(compare_strings(str1, str2))
+
+    #foo = [1,2]
+    #foo1, foo2 = foo
+    #print(foo1, foo2)
+    #print(*foo)
+
+if __name__ == "__main__":
+    main()
 
 #str1 = 1
 #str2 = "abc"

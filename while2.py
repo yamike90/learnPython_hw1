@@ -28,7 +28,7 @@ user_dict = {"Как дела?" : "Хорошо!",
 def ask_user_dict(qa):    
      while True:
         user_question = input("Задай мне вопрос: ")
-        if user_question in qa.keys():
+        if user_question in qa:
             print(qa[user_question])
         elif user_question == "Пока":
             print("И тебе пока")
@@ -46,7 +46,7 @@ def ask_user_dict_2(qa):
         if user_input == "Пока":
             print("И тебе пока")
             break
-        elif answer == None:
+        elif answer is None:
             print('У меня нет ответа на твой вопрос. Попробуй снова')
         else:
             print(answer)

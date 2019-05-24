@@ -71,13 +71,12 @@ def planet_constellation(bot, update):
             planet_object = ephem.Neptune(current_date)
         elif planet == "Pluto":
             planet_object = ephem.Pluto(current_date)
-
-        try:
-            const = ephem.constellation(planet_object)
-            text = f'Планета "{planet}" находится сейчас в созвездии {const}.'
-            update.message.reply_text(text)
-        except UnboundLocalError: #избегаем исключения, что переменная planet_object используется до ее объявления
+        else:
             update.message.reply_text("Нет такой планеты!")
+
+        const = ephem.constellation(planet_object)
+        text = f'Планета "{planet}" находится сейчас в созвездии {const}.'
+        update.message.reply_text(text)
 
     except IndexError:
         update.message.reply_text("Напиши название планеты после /planet!")

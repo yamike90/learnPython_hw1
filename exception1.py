@@ -28,8 +28,7 @@ def ask_user_dict(qa):
             else:
                 print('У меня нет ответа на твой вопрос. Попробуй снова')
         except KeyboardInterrupt:
-            print('''
-Пока''')
+            print('\nПока')
             break
 
 ask_user_dict(user_dict)

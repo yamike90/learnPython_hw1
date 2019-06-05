@@ -62,6 +62,22 @@ def planet_constellation(bot, update):
         text = "Напиши название планеты после /planet!"
 
     update.message.reply_text(text)
+
+def next_full_moon(bot, update):
+    try:
+        date = update.message.text.split()[1]
+    except IndexError:
+        date = update.message.date
+
+    next_full_moon_date  = ephem.next_full_moon(date)
+    text = f'Ближайшее полнолуние будет {next_full_moon_date}.'
+
+    update.message.reply_text(text)
+
+def cities(bot, update):
+
+    cities = ['Москва', 'Астана', 'Абакан']
+    #доделать https://learn.python.ru/lessons/tasks_lesson2.html?full#6
  
 def main():
     mybot = Updater(settings.API_KEY, request_kwargs = settings.PROXY)
@@ -70,6 +86,7 @@ def main():
     dp.add_handler(CommandHandler("start", greet_user))
     dp.add_handler(MessageHandler(Filters.text, talk_to_me))
     dp.add_handler(CommandHandler("planet", planet_constellation))
+    dp.add_handler(CommandHandler('next_full_moon', next_full_moon))
     
     mybot.start_polling()
     mybot.idle()
